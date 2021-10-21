@@ -1,0 +1,37 @@
+{% extends "base_form.html" %}
+{% block back %}
+<a href="{{ url_for('cadastro') }}" id="icon_voltar"><img src="{{url_for('static', filename='img/icon_voltar.svg')}}" alt="" height="42px" width="42px"></a>
+{% endblock %}
+
+{% block content %}
+<div id="div_form">
+
+    <form action=" " method='POST'>
+        <div>
+            <label for="user_email">email:</label>
+        </div>
+        <div>
+            <input type="text" name="user_email" id="user_email">
+        </div>
+        <div>
+            <label for="user_senha">senha:</label>
+        </div>
+        <div>
+            <input type="text" name="user_senha" id="user_senha">
+        </div>
+        <div>
+            <label for="user_senha_c">Confirmar a senha:</label>
+        </div>
+        <div>
+            <input type="text" name="user_senha_c" id="user_senha_c">
+        </div>
+
+        <div id="botao_form">
+        <button type="submit">Confirmar</button>
+        </div>
+        
+    </form>
+
+</div>
+
+{% endblock %}

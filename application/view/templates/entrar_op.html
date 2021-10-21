@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block back %}
+<a href="{{ url_for('index') }}" id="icon_voltar"><img src="{{url_for('static', filename='img/icon_voltar.svg')}}" alt="" height="42px" width="42px"></a>
+{% endblock %}
+{% block content %}
+<div id="div_botao">
+    <p>deseja entrar como?</p>
+    <div class="button_login">Usuário</div>
+    <div class="button_login">Empresa</div>
+</div>
+
+{% endblock %}

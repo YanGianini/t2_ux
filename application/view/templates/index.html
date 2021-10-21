@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block back %}
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" target="blank" id="icon_voltar"><img src="{{ url_for('static', filename='img/icon_exit.svg') }}" alt="" height="42px" width="42px"></a>
+{% endblock %}
+{% block content %}
+
+<div id="div_botao">
+    <a href="{{ url_for('cadastro') }}"><div class="button_login">Cadastre-se</div></a>
+    <a href="{{ url_for('entrar') }}"><div class="button_login">Entrar</div></a>
+</div>
+
+{% endblock %}

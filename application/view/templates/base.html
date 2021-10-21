@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title></title>
+</head>
+<body>
+    {% block back %}
+    {% endblock %}
+    <div id="div_logo">
+        <img src="{{ url_for('static', filename='img/bus.svg') }}" alt=""   width="57" height="57">
+        <p>my bus</p>
+    </div>
+
+    {% block content %}   
+    
+    {% endblock %}
+    
+    <footer>footer</footer>
+</body>
+</html>

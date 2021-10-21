@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+@media screen and (max-width:360px) {
+    body {
+        background-color: rgb(56, 56, 56);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0%;
+    }
+
+    #icon_voltar{
+        text-align: right;
+    }
+
+    a {
+        text-decoration: none;
+        height: 5vh;
+    }
+
+    #div_logo {
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #div_logo p{
+        color: white;
+        font-size: 36pt;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    #div_botao {
+        height: 30vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    #div_botao .button_login {
+        display: flex;
+        width: 200px;
+        height: 44px;
+        border-radius: 9px;
+        background-color: rgb(196, 196, 196);
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 16pt;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    #div_botao p {
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+    }
+
+    footer {
+        background-color: rgb(89, 88, 88);
+        height: 15vh;
+        margin: 0%;
+    }
+
+}
