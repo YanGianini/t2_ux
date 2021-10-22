@@ -5,8 +5,8 @@
 {% block content %}
 <div id="div_botao">
     <p>deseja entrar como?</p>
-    <div class="button_login">Usuário</div>
-    <div class="button_login">Empresa</div>
+    <a href="{{ url_for('entrar_tipo', tipo='usuario') }}"><div class="button_login">Usuário</div></a>
+    <a href="{{ url_for('entrar_tipo', tipo='empresa') }}"><div class="button_login">Empresa</div></a>
 </div>
 
 {% endblock %}

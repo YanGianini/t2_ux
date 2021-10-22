@@ -12,16 +12,22 @@
         {% if session.usuario %}
         <p>usuario</p>
         {{ session.usuario }}
+        <div>
+            {%for usuario in lista_user%}
+                {{usuario.get_nome()}}
+            {% endfor %}
+        </div>
         {% endif %}
         {% if session.emp %}
         <p>empresa</p>
+        <div>
+            {%for empresa in lista_emp%}
+                {{empresa.get_cnpj()}}
+            {% endfor %}
+        </div>
         {{ session.emp }}
         {% endif %}
     {% endif %}
-    <div>
-    {%for usuario in lista_user%}
-        {{usuario.get_nome()}}
-    {% endfor %}
-    </div>
+
 </body>
 </html>

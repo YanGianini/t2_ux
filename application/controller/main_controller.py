@@ -20,10 +20,6 @@ def index():
 def cadastro():
     return render_template("cadastro_op.html")
 
-@app.route("/entrar")
-def entrar():
-    return render_template("entrar_op.html")
-
 @app.route("/cadastrar/usuario-form")
 def cadastrar_user():
     return render_template("form_user.html")
@@ -63,6 +59,39 @@ def cadastrar_emp_action():
         return redirect(url_for('home'))
     else:
         return render_template("form_emp.html")
+
+@app.route("/entrar")
+def entrar():
+    return render_template("entrar_op.html")
+
+@app.route("/entrar/<tipo>/form", methods=['POST', 'GET'])
+def entrar_tipo(tipo):
+    return render_template("form_entrar.html", tipo=tipo)
+
+@app.route("/entrar/<tipo>/login", methods=["GET", "POST"])
+def entrar_action(tipo):
+    if tipo == 'usuario':
+        email = request.form.get('email', None)
+        senha = request.form.get('senha', None)
+        for e in lista_user:
+            if e.get_email() == email:
+                if e.get_senha() == senha:
+                    session['usuario']= e.get_nome()
+                    session['emp']= None
+                    return redirect(url_for('home'))
+    
+    elif tipo == 'empresa':
+        email = request.form.get('email', None)
+        senha = request.form.get('senha', None)
+        for e in lista_emp:
+            if e.get_email() == email:
+                if e.get_senha() == senha:
+                    session['emp']= e.get_cnpj()
+                    session['usuario']= None
+                    return redirect(url_for('home'))
+
+
+
 
 @app.route("/home")
 def home():
