@@ -1,5 +1,7 @@
 {% extends "base_form.html" %}
-
+{% block back %}
+    <a href="{{ url_for('entrar') }}" id="icon_voltar"><img src="{{url_for('static', filename='img/icon_voltar.svg')}}" alt="" height="42px" width="42px"></a>
+{% endblock %}
 {% block content %}
 <div id="div_form">
 
