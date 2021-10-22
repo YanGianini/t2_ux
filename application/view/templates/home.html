@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    cadastrado
+    {% if session %}
+        {% if session.usuario %}
+        <p>usuario</p>
+        {{ session.usuario }}
+        {% endif %}
+        {% if session.emp %}
+        <p>empresa</p>
+        {{ session.emp }}
+        {% endif %}
+    {% endif %}
+    <div>
+    {%for usuario in lista_user%}
+        {{usuario.get_nome()}}
+    {% endfor %}
+    </div>
+</body>
+</html>

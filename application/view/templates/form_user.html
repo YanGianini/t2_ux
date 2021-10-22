@@ -6,7 +6,13 @@
 {% block content %}
 <div id="div_form">
 
-    <form action=" " method='POST'>
+    <form action="{{ url_for('cadastrar_user_action') }} " method='POST'>
+        <div>
+            <label for="user_nome">nome:</label>
+        </div>
+        <div>
+            <input type="text" name="user_nome" id="user_nome">
+        </div>
         <div>
             <label for="user_email">email:</label>
         </div>

@@ -5,7 +5,7 @@
 {% block content %}
 <div id="div_form">
 
-    <form action=" " method='POST'>
+    <form action="{{ url_for('cadastrar_emp_action') }} " method='POST'>
         <div>
             <label for="emp_email">email:</label>
         </div>
