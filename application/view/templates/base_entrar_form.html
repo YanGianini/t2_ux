@@ -4,21 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='form.css') }}">
     <title></title>
 </head>
 <body>
     {% block back %}
     {% endblock %}
     <div id="div_logo">
-        <img src="{{ url_for('static', filename='img/bus.svg') }}" alt=""   width="57" height="57">
-        <p>my bus</p>
+        <p>Entrar</p>
+        <img src="{{ url_for('static', filename='img/circ_conta.svg') }}" alt="" height="62px" width="62px">   
     </div>
 
     {% block content %}   
     
     {% endblock %}
-    
-    <footer> </footer>
 </body>
 </html>

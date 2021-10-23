@@ -4,10 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+
     <title>Document</title>
 </head>
 <body>
-    cadastrado
+    <header><img src="{{url_for('static', filename='img/menu_icon.svg')}}" alt=""> <img src="{{url_for('static', filename='img/circ_conta.svg')}}" alt=""></header>
+    <div id="sub-header">
+        <div id='search-div'>
+            <form action="">
+                <input type="text" name='search' id="search">
+            </form>
+        </div>
+        <div id="target-div"><img src="{{url_for('static', filename='img/localizacao.svg')}}" alt=""></div>
+        
+    </div>
+    <div id="mapa">
+        
+    </div>
+
+    <footer>
+        <div><img src="{{url_for('static', filename='img/localizacao.svg')}}" alt=""></div>
+    </footer>
+
+
+    <!--cadastrado
     {% if session %}
         {% if session.usuario %}
         <p>usuario</p>
@@ -27,7 +48,6 @@
         </div>
         {{ session.emp }}
         {% endif %}
-    {% endif %}
-
+    {% endif %}-->
 </body>
 </html>
