@@ -107,6 +107,24 @@
         height: 10vh;
     }
 
+    #side_header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #side_header img{
+        width: 42px;
+        height: 42px;
+    }
+
+    #side_header p{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14pt;
+        margin-left: 2vh;
+    }
+
     #conteudo_side div {
         width: auto;
         height: 10vh;
@@ -142,4 +160,30 @@
         height: 10vh;
         
    } 
+
+   #left_header{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    }
+
+    #left_header img{
+        width: 42px;
+        height: 42px;
+    }
+
+   #about_us {
+       display: flex;
+       align-items: center;
+       margin-left: 2vh;
+   }
+
+    #about_us a{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14pt;
+        text-decoration: none;
+        color: black;
+        text-emphasis: 10;
+    }
 }

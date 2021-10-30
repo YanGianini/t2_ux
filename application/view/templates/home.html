@@ -32,8 +32,8 @@
             {% if session %}
                 {% if session.usuario %}
                 
-                <div>
-                    {{ session.usuario }}
+                <div id="side_header">
+                    <p>{{ session.usuario }}</p>
                     <img src="{{url_for('static', filename='img/icon_voltar_black.svg')}}" onclick="hide_side()" alt="">
                 </div>
                 <div class="opcao_menu">
@@ -73,7 +73,7 @@
     </div>
 
     <div id="left_bar">
-        <div>
+        <div id="left_header">
             <img src="{{url_for('static', filename='img/icon_voltar_black.svg')}}" onclick="hide_left()" alt="">  
         </div>
         <div class="opcao_menu">
