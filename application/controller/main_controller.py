@@ -1,3 +1,4 @@
+import re
 from flask.wrappers import Request
 from application import app
 from flask import render_template, url_for, redirect, request, session
@@ -5,12 +6,15 @@ from application.model.entity.usuario import Usuario
 from application.model.dao.usuariodao import UsuarioDao
 from application.model.entity.empresa import Empresa
 from application.model.dao.empresadao import EmpresaDao
+from application.model.dao.pontoDao import PontoDao
 
 app.secret_key = "lorem ipsum"
 usuariodao = UsuarioDao()
 lista_user = usuariodao.getlista_user()
 empresadao = EmpresaDao()
 lista_emp = empresadao.getlista_emp()
+pontodao = PontoDao()
+lista_pontos = pontodao.lista_ponto()
 
 @app.route("/", methods=["GET"])
 def index():
@@ -98,3 +102,12 @@ def entrar_action(tipo):
 def home():
     return render_template("home.html", lista_user=lista_user, lista_emp=lista_emp)
     
+@app.route("/buscar")
+def buscar():
+    pontos = []
+    busca_txt = request.args.get('search')
+    for p in lista_pontos:
+        if p.get_nome() == busca_txt:
+            pontos.append(p)
+            return render_template("home.html", lista_user=lista_user, lista_emp=lista_emp, pontos=pontos)
+        return redirect(url_for('home'))

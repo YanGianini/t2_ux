@@ -12,16 +12,16 @@
     <header><img src="{{url_for('static', filename='img/menu_icon.svg')}}" alt="" onclick="show_side()"> <img src="{{url_for('static', filename='img/circ_conta.svg')}}" alt="" onclick="show_left()"></header>
     <div id="sub-header">
         <div id='search-div'>
-            <form action="">
-                <input type="text" name='search' id="search">
+            <form action="{{ url_for('buscar')}}" method="get" enctype="application/x-www-form-urlencoded" onsubmit="return buscar_ponto()">
+                <input type="text" name='search' id="search" value="{{ busca_arg if busca_arg != None else '' }}">
             </form>
         </div>
         <div id="target-div"><img src="{{url_for('static', filename='img/localizacao.svg')}}" alt=""></div>
         
     </div>
-    <div id="mapa">
-        
-    </div>
+    <section id="mapa">
+        <p>mapa</p>
+    </section>
 
     <footer>
         <div><img src="{{url_for('static', filename='img/localizacao.svg')}}" alt=""></div>
@@ -106,6 +106,22 @@
         function hide_left(){
             var side_bar = window.document.getElementById("left_bar");
                 side_bar.style.display="None";
+        }
+
+        function buscar_ponto(){
+            term = document.getElementById("search").value;
+            xhr = new XMLHttpRequest();
+            xhr.open("GET", "/buscar?term=" + term);
+            xhr.send(null);
+            console.log('alo');
+            xhr.onreadystatechange = function () {
+                console.log('alo');
+                if (xhr.readyState === 4 && xhr.status === 200){
+                    document.getElementById('mapa').innerHTML = xhr.response;
+                    console.log('alo');
+                }
+            }
+            return false;    
         }
 
     </script>

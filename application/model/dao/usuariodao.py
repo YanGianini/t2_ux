@@ -8,3 +8,6 @@ class UsuarioDao():
 
     def getlista_user(self):
         return self.lista_user
+
+user1 = Usuario("Yan", "yangianini", "a")
+lista_user.append(user1)
