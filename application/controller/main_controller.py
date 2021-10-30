@@ -79,6 +79,7 @@ def entrar_action(tipo):
                     session['usuario']= e.get_nome()
                     session['emp']= None
                     return redirect(url_for('home'))
+        return render_template('form_entrar.html', tipo=tipo)
     
     elif tipo == 'empresa':
         email = request.form.get('email', None)
@@ -89,10 +90,11 @@ def entrar_action(tipo):
                     session['emp']= e.get_cnpj()
                     session['usuario']= None
                     return redirect(url_for('home'))
-
+        return render_template('form_entrar.html', tipo=tipo)
 
 
 
 @app.route("/home")
 def home():
     return render_template("home.html", lista_user=lista_user, lista_emp=lista_emp)
+    

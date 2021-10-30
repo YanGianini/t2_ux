@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 <body>
-    <header><img src="{{url_for('static', filename='img/menu_icon.svg')}}" alt=""> <img src="{{url_for('static', filename='img/circ_conta.svg')}}" alt=""></header>
+    <header><img src="{{url_for('static', filename='img/menu_icon.svg')}}" alt="" onclick="show_side()"> <img src="{{url_for('static', filename='img/circ_conta.svg')}}" alt="" onclick="show_left()"></header>
     <div id="sub-header">
         <div id='search-div'>
             <form action="">
@@ -27,27 +27,87 @@
         <div><img src="{{url_for('static', filename='img/localizacao.svg')}}" alt=""></div>
     </footer>
 
+    <div id="side_bar">
+        <div id="conteudo_side">
+            {% if session %}
+                {% if session.usuario %}
+                
+                <div>
+                    {{ session.usuario }}
+                    <img src="{{url_for('static', filename='img/icon_voltar_black.svg')}}" onclick="hide_side()" alt="">
+                </div>
+                <div class="opcao_menu">
+                    <a href="">Rotas favoritas</a>
+                </div>
+                <div class="opcao_menu">
+                    <a href="">Verificar</a>
+                </div>
+                <div class="opcao_menu">
+                    <a href="">Verificar proximos horarios</a>
+                </div>
+                <div class="opcao_menu">
+                    <a href="">Identificar rota</a>
+                </div>
+                <div class="opcao_menu">
+                    <a href="">Calcular rota</a>
+                </div>
+                <div class="opcao_menu">
+                    <a href="">Informações e notícias</a>
+                </div>
 
-    <!--cadastrado
-    {% if session %}
-        {% if session.usuario %}
-        <p>usuario</p>
-        {{ session.usuario }}
-        <div>
-            {%for usuario in lista_user%}
-                {{usuario.get_nome()}}
-            {% endfor %}
+                {% endif %}
+                {% if session.emp %}
+                <p>empresa</p>
+                <div>
+                    {%for empresa in lista_emp%}
+                        {{empresa.get_cnpj()}}
+                    {% endfor %}
+                </div>
+                {{ session.emp }}
+                {% endif %}
+            {% endif %}
         </div>
-        {% endif %}
-        {% if session.emp %}
-        <p>empresa</p>
-        <div>
-            {%for empresa in lista_emp%}
-                {{empresa.get_cnpj()}}
-            {% endfor %}
+        <div id="about_us">
+            <a href="https://www.youtube.com/watch?v=oowBXzfcl90&ab_channel=AOM" target="blank">Sobre nós</a>
         </div>
-        {{ session.emp }}
-        {% endif %}
-    {% endif %}-->
+    </div>
+
+    <div id="left_bar">
+        <div>
+            <img src="{{url_for('static', filename='img/icon_voltar_black.svg')}}" onclick="hide_left()" alt="">  
+        </div>
+        <div class="opcao_menu">
+            <a href="">Alterar dados</a>
+        </div>
+        <div class="opcao_menu">
+            <a href="">Configurações</a>
+        </div>
+        <div class="opcao_menu">
+            <a href="">Acessibilidade</a>
+        </div>
+        <div class="opcao_menu">
+            <a href="">Sair</a>
+        </div>
+    </div>
+
+    <script>
+        function show_side(){
+            var side_bar = window.document.getElementById("side_bar");
+                side_bar.style.display="flex";
+        }
+        function hide_side(){
+            var side_bar = window.document.getElementById("side_bar");
+                side_bar.style.display="None";
+        }
+        function show_left(){
+            var side_bar = window.document.getElementById("left_bar");
+                side_bar.style.display="flex";
+        }
+        function hide_left(){
+            var side_bar = window.document.getElementById("left_bar");
+                side_bar.style.display="None";
+        }
+
+    </script>
 </body>
 </html>
