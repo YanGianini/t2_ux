@@ -13,7 +13,7 @@
     <div id="sub-header">
         <div id='search-div'>
             <form action="{{ url_for('buscar')}}" method="get" enctype="application/x-www-form-urlencoded" onsubmit="return buscar_ponto()">
-                <input type="text" name='search' id="search" value="{{ busca_arg if busca_arg != None else '' }}">
+                <input type="text" name='busca_arg' id="search" value="{{ busca_arg if busca_arg != None else '' }}">
             </form>
         </div>
         <div id="target-div"><img src="{{url_for('static', filename='img/localizacao.svg')}}" alt=""></div>
@@ -89,6 +89,9 @@
             <a href="">Sair</a>
         </div>
     </div>
+    <div id="busca_result">
+
+    </div>
 
     <script>
         function show_side(){
@@ -111,14 +114,13 @@
         function buscar_ponto(){
             term = document.getElementById("search").value;
             xhr = new XMLHttpRequest();
-            xhr.open("GET", "/buscar?term=" + term);
+            xhr.open("GET", "/buscar?busca_arg=" + term);
             xhr.send(null);
-            console.log('alo');
             xhr.onreadystatechange = function () {
                 console.log('alo');
                 if (xhr.readyState === 4 && xhr.status === 200){
-                    document.getElementById('mapa').innerHTML = xhr.response;
-                    console.log('alo');
+                    document.getElementById('busca_result').innerHTML = xhr.response;
+                    document.getElementById('busca_result').style.display = "flex"
                 }
             }
             return false;    

@@ -105,9 +105,12 @@ def home():
 @app.route("/buscar")
 def buscar():
     pontos = []
-    busca_txt = request.args.get('search')
+    busca_txt = request.args.get('busca_arg')
+    print("busca:" + busca_txt)
     for p in lista_pontos:
-        if p.get_nome() == busca_txt:
+        if busca_txt == p.get_nome():
             pontos.append(p)
-            return render_template("home.html", lista_user=lista_user, lista_emp=lista_emp, pontos=pontos)
-        return redirect(url_for('home'))
+            print(p.get_nome())
+        
+    return render_template("lista_ponto.html", pontos=pontos)
+        

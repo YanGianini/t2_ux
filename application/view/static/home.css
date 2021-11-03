@@ -186,4 +186,14 @@
         color: black;
         text-emphasis: 10;
     }
+
+    #busca_result{
+        display: none;
+        position: absolute;
+        background-color: white;
+        width: 90%;
+        margin-left: 5%;
+        bottom: 0;
+        height: 90vh;
+    }
 }
