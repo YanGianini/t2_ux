@@ -1,3 +1,21 @@
-{% for ponto in pontos%}
-    <div>{{ ponto.get_nome() }}</div>
-{% endfor%}
+{% if ponto %}
+    <div id="pop_header">
+        <img id="icon_bus" src="{{ url_for('static', filename='img/onibus_ponto.svg')}}" alt="">
+        <p>{{ ponto.get_nome() }}</p>
+        <img class="icon_voltar" src="{{ url_for('static', filename='img/voltar_baixo.svg')}}" alt="" onclick="fecha_pop()">
+    </div>
+    <div id="area_h"><p id="pop_horario">horarios</p></div>
+    
+    <div id="area_horario">
+        <div id="linha"><p>nome linha</p></div>
+        <div id="horario"><p>10:30</p></div>
+        <div id="pontos"><p>ponto saida x ponto chegada</p></div>
+    </div>
+{% else %}
+    <div id="sem_ponto">
+        <img class="icon_voltar" src="{{ url_for('static', filename='img/voltar_baixo.svg')}}" alt="" onclick="fecha_pop()">
+        <p>Desculpe!</p>
+        <p>Não encontramos nenhum ponto com este nome</p>
+        
+    </div>
+{% endif%}

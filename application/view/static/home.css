@@ -7,6 +7,9 @@
         flex-direction: column;
         min-height: 100vh;
         margin: 0%;
+        background-image: url('/static/img/mapa.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 
     header {
@@ -162,10 +165,10 @@
    } 
 
    #left_header{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
     }
 
     #left_header img{
@@ -184,16 +187,91 @@
         font-size: 14pt;
         text-decoration: none;
         color: black;
-        text-emphasis: 10;
     }
 
     #busca_result{
         display: none;
+        flex-direction: column;
         position: absolute;
         background-color: white;
         width: 90%;
         margin-left: 5%;
         bottom: 0;
         height: 90vh;
+    }
+
+    #pop_header {
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+        height: 10vh;
+    }
+
+    #pop_header p {
+        font-size: 14pt;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    #icon_bus{
+        width: 45px;
+        height: 56px;
+    }
+
+    .icon_voltar {
+        width: 32px;
+        height: 32px; 
+    }
+
+    div #area_h {
+        height: 5vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #pop_horario {
+        font-size: 12pt;
+        font-family: 'Montserrat', sans-serif;
+        margin: 0px;
+    }
+    
+    div #area_horario {
+        display: grid;
+        grid-template-areas: "linha horario" "pontos pontos";
+        grid-template-rows: 5vh 5vh;
+        font-size: 12pt;
+        font-family: 'Montserrat', sans-serif;
+        text-align: center;
+        align-items: center;
+        background-color: #EFEFEF;
+    }
+
+    #linha {
+        grid-area: linha;
+    }
+
+    #horario {
+        grid-area: horario;
+    }
+
+    #pontos {
+        grid-area: pontos; 
+    }
+
+    div #sem_ponto {
+        display: flex;
+        flex-direction: column;
+    }
+
+    div #sem_ponto p{
+        text-align: center;
+        font-size: 16pt;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    div #sem_ponto img{
+        align-self: flex-end;
+        justify-self: center;
+        height: 10vh;
     }
 }
